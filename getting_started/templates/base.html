@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - Getting Started</title>
+    <!-- Add Bootstrap from file: -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+    <!-- Add TailwindCSS from CDN link:
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.0/tailwind.min.css" integrity="sha512-ksC7McuoU4VJ07WGtca5INyDRXzGsmhyEEJYzoWBkjC/KwuG+IK/pFnxJFNIGmOd8pmGexOxd3FziCPZXQJ4lA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.0/base.min.css" integrity="sha512-N6YfAFXd5MjcRm5DA1EL1pD4caRbuwURbh5+RQQ7LSqsZ6Qece1+x2ZjngX/QcH/2FJ8zhspE+nkSSKK1QjeoQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    -->
+    <!-- Insert styles from a specific template. -->
+    {% block style %}{% endblock %}
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        {% block header %}
+            {% include 'header.html' %}
+        {% endblock %}
+    </header>
+    
+
+    <main class="m-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}
+            {% include 'footer.html' %}
+        {% endblock %}
+    </footer>
+
+    <!-- Insert scripts from a specific template. -->
+    {% block scripts %}{% endblock %}
+
+    <script src="{{ url_for('static', filename='js/script.js')}}"></script>
+</body>
+</html>
